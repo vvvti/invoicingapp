@@ -39,3 +39,17 @@ class Contractor(models.Model):
 
     def __str__(self):
         return(self.contractor_name)
+
+
+class ContractorAddress(models.Model):
+    contractor = models.ForeignKey(Contractor, on_delete=models.CASCADE)
+    city = models.CharField('City or Town', max_length=200)
+    street = models.CharField('Street', max_length=200, blank=True, null=True)
+    number = models.CharField('House number', max_length=100)
+    post = models.CharField('Post office', max_length=200)
+    postal_code = models.CharField('Postal code', max_length=200)
+    notes = models.CharField('Notes', max_length=250, blank=True, null=True)
+    slug = AutoSlugField(populate_from=['pk'], unique=True)
+
+    def __str__(self):
+        return(self.city)
