@@ -49,7 +49,17 @@ class ContractorAddress(models.Model):
     post = models.CharField('Post office', max_length=200)
     postal_code = models.CharField('Postal code', max_length=200)
     notes = models.CharField('Notes', max_length=250, blank=True, null=True)
-    slug = AutoSlugField(populate_from=['pk'], unique=True)
+    slug = AutoSlugField(populate_from=['pk'], unique=True, null=True)
 
     def __str__(self):
         return(self.city)
+
+
+class InvoicePosition(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    product_name = models.CharField('Product/service namme', max_length=250)
+    quantity = models.DecimalField('Quantity', max_digits=10, decimal_places=2)
+    price = models.DecimalField('Price', max_digits=12, decimal_places=2)
+
+    def __str__(self):
+        return(self.product_name)
