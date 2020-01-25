@@ -25,6 +25,7 @@ class Invoice(models.Model):
 
 
 class Contractor(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     contractor_name = models.CharField(
         'Company name', max_length=200, null=True)
     contractor_nip = models.CharField(
