@@ -10,7 +10,8 @@ class Invoice(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     invoice_date = models.DateTimeField(
         'invoice issue date', default=timezone.now)
-    invoice_number = models.CharField('invoice number', max_length=80)
+    invoice_number = models.CharField(
+        'invoice number', max_length=80, unique=True)
     sell_date = models.DateTimeField(
         'date of sell', default=timezone.now)
     slug = AutoSlugField(populate_from=['pk'], unique=True)
