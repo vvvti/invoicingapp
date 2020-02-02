@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'main',
     'invoices',
+    'frontend',
 ]
 SITE_ID = 1
 
