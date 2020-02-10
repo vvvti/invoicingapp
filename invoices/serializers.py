@@ -6,7 +6,7 @@ class ContractorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contractor
         fields = (
-            '_all_'
+            "__all__"
         )
 
 
@@ -14,7 +14,7 @@ class ContractorAddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContractorAddress
         fields = (
-            '_all_'
+            '__all__'
         )
 
 
@@ -22,7 +22,7 @@ class InvoiceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invoice
         fields = (
-            '_all_'
+            '__all__'
         )
 
 
@@ -30,5 +30,5 @@ class InvoicePositionSerializer(serializers.ModelSerializer):
     class Meta:
         model = InvoicePosition
         fields = (
-            '_all_'
+            '__all__'
         )
