@@ -5,7 +5,7 @@ from .serializers import (ContractorSerializer, ContractorAddressSerializer,
 
 
 class ContractorViewSet(viewsets.ModelViewSet):
-        permission_classes = [
+    permission_classes = [
         permissions.IsAuthenticated
     ]
 
@@ -13,11 +13,9 @@ class ContractorViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return self.request.user.contractor.all()
-    
+
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-
 
 
 class ContractorAddressViewSet(viewsets.ModelViewSet):
