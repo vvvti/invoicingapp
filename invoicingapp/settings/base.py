@@ -29,11 +29,17 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    'knox',
     'main',
     'invoices',
     'frontend',
 ]
 SITE_ID = 1
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':
+    ('knox.auth.TokenAuthentication')
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
