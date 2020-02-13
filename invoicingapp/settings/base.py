@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     'rest_auth.registration',
     'knox',
     'main',
@@ -38,7 +39,7 @@ SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES':
-    ('knox.auth.TokenAuthentication')
+    ('knox.auth.TokenAuthentication',)
 }
 
 MIDDLEWARE = [
