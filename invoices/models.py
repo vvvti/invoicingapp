@@ -9,15 +9,15 @@ from django_extensions.db.fields import AutoSlugField
 class Contractor(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     contractor_name = models.CharField(
-        'Company name', max_length=200, null=True)
+        'Company name', max_length=200)
     contractor_nip = models.CharField(
-        'NIP', max_length=12, blank=True, null=True)
+        'NIP', max_length=12, blank=True)
     contractor_regon = models.IntegerField(
         'REGON', blank=True, null=True)
     contractor_phone = models.CharField(
-        'Phone number', max_length=20, blank=True, null=True)
+        'Phone number', max_length=20, blank=True)
     contractor_email = models.EmailField(
-        'Email address', max_length=254, blank=True, null=True)
+        'Email address', max_length=254, blank=True)
 
     def __str__(self):
         return(self.contractor_name)
@@ -26,11 +26,11 @@ class Contractor(models.Model):
 class ContractorAddress(models.Model):
     contractor = models.ForeignKey(Contractor, on_delete=models.CASCADE)
     city = models.CharField('City or Town', max_length=200)
-    street = models.CharField('Street', max_length=200, blank=True, null=True)
+    street = models.CharField('Street', max_length=200, blank=True)
     number = models.CharField('House number', max_length=100)
     post = models.CharField('Post office', max_length=200)
     postal_code = models.CharField('Postal code', max_length=200)
-    notes = models.CharField('Notes', max_length=250, blank=True, null=True)
+    notes = models.CharField('Notes', max_length=250, blank=True)
 
     def __str__(self):
         return(self.city)
