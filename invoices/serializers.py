@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from . models import Contractor, ContractorAddress, Invoice, InvoicePosition
+from . models import Contractor, Invoice, InvoicePosition
 
 
 class ContractorSerializer(serializers.ModelSerializer):
@@ -7,14 +7,6 @@ class ContractorSerializer(serializers.ModelSerializer):
         model = Contractor
         fields = (
             "__all__"
-        )
-
-
-class ContractorAddressSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ContractorAddress
-        fields = (
-            '__all__'
         )
 
 

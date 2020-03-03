@@ -1,6 +1,6 @@
-from .models import Contractor, ContractorAddress, Invoice, InvoicePosition
+from .models import Contractor, Invoice, InvoicePosition
 from rest_framework import viewsets, permissions
-from .serializers import (ContractorSerializer, ContractorAddressSerializer,
+from .serializers import (ContractorSerializer,
                           InvoiceSerializer, InvoicePositionSerializer)
 
 
@@ -16,14 +16,6 @@ class ContractorViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-
-class ContractorAddressViewSet(viewsets.ModelViewSet):
-    queryset = ContractorAddress.objects.all()
-    permission_classes = [
-        permissions.AllowAny
-    ]
-    serializer_class = ContractorAddressSerializer
 
 
 class InvoiceViewSet(viewsets.ModelViewSet):

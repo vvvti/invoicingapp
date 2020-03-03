@@ -18,13 +18,6 @@ class Contractor(models.Model):
         'Phone number', max_length=20, blank=True)
     contractor_email = models.EmailField(
         'Email address', max_length=254, blank=True)
-
-    def __str__(self):
-        return(self.contractor_name)
-
-
-class ContractorAddress(models.Model):
-    contractor = models.ForeignKey(Contractor, on_delete=models.CASCADE)
     city = models.CharField('City or Town', max_length=200)
     street = models.CharField('Street', max_length=200, blank=True)
     number = models.CharField('House number', max_length=100)
@@ -33,7 +26,7 @@ class ContractorAddress(models.Model):
     notes = models.CharField('Notes', max_length=250, blank=True)
 
     def __str__(self):
-        return(self.city)
+        return(self.contractor_name)
 
 
 class Invoice(models.Model):
