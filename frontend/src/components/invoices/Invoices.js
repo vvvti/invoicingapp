@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getInvoices } from "../../actions/invoices";
+import { getInvoices, deleteInvoice } from "../../actions/invoices";
 
 export class Invoices extends Component {
   static PropTypes = {
@@ -13,7 +13,7 @@ export class Invoices extends Component {
   }
   render() {
     return (
-      <dFragment>
+      <Fragment>
         <h2>Invoices</h2>
         <table className="table table-striped">
           <thead>
@@ -33,26 +33,31 @@ export class Invoices extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.props.invoices.map(invoices => (
-              <tr key={invoices.id}>
-                <td>{invoices.id}</td>
-                <td>{invoices.invoice_date}</td>
-                <td>{invoices.invoice_number}</td>
-                <td>{invoices.sell_date}</td>
-                <td>{invoices.payment_form}</td>
-                <td>{invoices.payment_date}</td>
-                <td>{invoices.created}</td>
-                <td>{invoices.updated}</td>
-                <td>{invoices.user}</td>
-                <td>{invoices.contractor}</td>
+            {this.props.invoices.map(invoice => (
+              <tr key={invoice.id}>
+                <td>{invoice.id}</td>
+                <td>{invoice.invoice_date}</td>
+                <td>{invoice.invoice_number}</td>
+                <td>{invoice.sell_date}</td>
+                <td>{invoice.payment_form}</td>
+                <td>{invoice.payment_date}</td>
+                <td>{invoice.created}</td>
+                <td>{invoice.updated}</td>
+                <td>{invoice.user}</td>
+                <td>{invoice.contractor}</td>
                 <td>
-                  <button className="btn btn-danger btn-sm">Delete</button>
+                  <button
+                    onClick={this.props.deleteInvoice.bind(this, invoice.id)}
+                    className="btn btn-outline-danger btn-sm"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </dFragment>
+      </Fragment>
     );
   }
 }
@@ -61,4 +66,6 @@ const mapStateToProps = state => ({
   invoices: state.invoices.invoices
 });
 
-export default connect(mapStateToProps, { getInvoices })(Invoices);
+export default connect(mapStateToProps, { getInvoices, deleteInvoice })(
+  Invoices
+);
