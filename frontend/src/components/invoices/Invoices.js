@@ -4,8 +4,10 @@ import PropTypes from "prop-types";
 import { getInvoices, deleteInvoice } from "../../actions/invoices";
 
 export class Invoices extends Component {
-  static PropTypes = {
-    invoices: PropTypes.array.isRequired
+  static propTypes = {
+    invoices: PropTypes.array.isRequired,
+    getInvoices: PropTypes.func.isRequired,
+    deleteInvoice: PropTypes.func.isRequired
   };
 
   componentDidMount() {
