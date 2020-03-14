@@ -1,4 +1,4 @@
-import { GET_INVOICES, DELETE_INVOICE } from "../actions/types.js";
+import { GET_INVOICES, DELETE_INVOICE, ADD_INVOICE } from "../actions/types.js";
 
 const initialState = {
   invoices: []
@@ -17,6 +17,11 @@ export default function(state = initialState, action) {
         invoices: state.invoices.filter(
           invoice => invoice.id !== action.payload
         )
+      };
+    case ADD_INVOICE:
+      return {
+        ...state,
+        invoices: [...state.invoices, actions.payload]
       };
 
     default:

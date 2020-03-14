@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { addInvoice } from "../../actions/invoices";
 
 export class Form extends Component {
   state = {
@@ -11,11 +14,33 @@ export class Form extends Component {
     Contractor: ""
   };
 
+  static propTypes = {
+    addInvoice: PropTypes.func.isRequired
+  };
+
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   onSubmit = e => {
     e.preventDefault();
-    console.log("submit");
+    const {
+      Invoice_date,
+      Invoice_number,
+      Date_sell,
+      Payment_form,
+      Payment_date,
+      User,
+      Contractor
+    } = this.state;
+    const invoice = {
+      Invoice_date,
+      Invoice_number,
+      Date_sell,
+      Payment_form,
+      Payment_date,
+      User,
+      Contractor
+    };
+    this.props.addInvoice(invoice);
   };
 
   render() {
@@ -114,4 +139,4 @@ export class Form extends Component {
   }
 }
 
-export default Form;
+export default connect(null, { addInvoice })(Form);

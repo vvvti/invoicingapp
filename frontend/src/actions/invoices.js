@@ -1,7 +1,8 @@
 import axios from "axios";
 
-import { GET_INVOICES, DELETE_INVOICE } from "./types";
+import { GET_INVOICES, DELETE_INVOICE, ADD_INVOICE } from "./types";
 
+//get invoices
 export const getInvoices = () => dispatch => {
   axios
     .get("/api/invoice/")
@@ -13,6 +14,7 @@ export const getInvoices = () => dispatch => {
     })
     .catch(err => console.log(err));
 };
+//delete invoice
 export const deleteInvoice = id => dispatch => {
   axios
     .delete(`/api/invoice/${id}/`)
@@ -20,6 +22,18 @@ export const deleteInvoice = id => dispatch => {
       dispatch({
         type: DELETE_INVOICE,
         payload: id
+      });
+    })
+    .catch(err => console.log(err));
+};
+//add invoice
+export const addInvoice = invoice => dispatch => {
+  axios
+    .post("/api/invoice/", invoice)
+    .then(res => {
+      dispatch({
+        type: ADD_INVOICE,
+        payload: res.data
       });
     })
     .catch(err => console.log(err));
