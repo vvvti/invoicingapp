@@ -41,6 +41,15 @@ export class Form extends Component {
       Contractor
     };
     this.props.addInvoice(invoice);
+    this.setState({
+      Invoice_date: "",
+      Invoice_number: "",
+      Date_sell: "",
+      Payment_form: "",
+      Payment_date: "",
+      User: "",
+      Contractor: ""
+    });
   };
 
   render() {

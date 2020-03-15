@@ -1,4 +1,5 @@
 import axios from "axios";
+import { createMessage } from "./messages";
 
 import { GET_INVOICES, DELETE_INVOICE, ADD_INVOICE, GET_ERRORS } from "./types";
 
@@ -19,6 +20,7 @@ export const deleteInvoice = id => dispatch => {
   axios
     .delete(`/api/invoice/${id}/`)
     .then(res => {
+      dispatch(createMessage({ deleteInvoice: "Invoice Deleted" }));
       dispatch({
         type: DELETE_INVOICE,
         payload: id
@@ -31,6 +33,7 @@ export const addInvoice = invoice => dispatch => {
   axios
     .post("/api/invoice/", invoice)
     .then(res => {
+      dispatch(createMessage({ addInvoice: "Invoice added" }));
       dispatch({
         type: ADD_INVOICE,
         payload: res.data
