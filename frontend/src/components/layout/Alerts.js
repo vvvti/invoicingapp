@@ -1,13 +1,26 @@
 import React, { Component, Fragment } from "react";
 import { withAlert } from "react-alert";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 export class Alerts extends Component {
-  componentDidMount() {
-    this.props.alert.show("działa");
+  static propTypes = {
+    error: PropTypes.object.isRequired
+  };
+
+  componentDidUpdate(prevProps) {
+    const { error, alert } = this.props;
+    if (error !== prevProps.error) {
+      if (error.msg.user) alert.error(`User: ${error.msg.user.join()}`);
+    }
   }
   render() {
     return <Fragment />;
   }
 }
 
-export default withAlert()(Alerts);
+const mapStateToProps = state => ({
+  error: state.errors
+});
+
+export default connect(mapStateToProps)(withAlert()(Alerts));

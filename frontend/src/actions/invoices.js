@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_INVOICES, DELETE_INVOICE, ADD_INVOICE } from "./types";
+import { GET_INVOICES, DELETE_INVOICE, ADD_INVOICE, GET_ERRORS } from "./types";
 
 //get invoices
 export const getInvoices = () => dispatch => {
@@ -36,5 +36,14 @@ export const addInvoice = invoice => dispatch => {
         payload: res.data
       });
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      const errors = {
+        msg: err.response.data,
+        status: err.response.status
+      };
+      dispatch({
+        type: GET_ERRORS,
+        payload: errors
+      });
+    });
 };
