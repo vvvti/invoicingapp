@@ -19,11 +19,17 @@ class ContractorViewSet(viewsets.ModelViewSet):
 
 
 class InvoiceViewSet(viewsets.ModelViewSet):
-    queryset = Invoice.objects.all()
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
+
     serializer_class = InvoiceSerializer
+
+    def get_queryset(self):
+        return self.request.user.invoice.all()
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 class InvoicePositionViewSet(viewsets.ModelViewSet):

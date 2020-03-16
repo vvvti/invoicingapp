@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.conf import settings
 from datetime import datetime
 from django.utils import timezone
-from django_extensions.db.fields import AutoSlugField
+
 
 
 class Contractor(models.Model):
