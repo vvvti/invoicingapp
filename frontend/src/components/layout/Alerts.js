@@ -19,6 +19,8 @@ export class Alerts extends Component {
       if (message.deleteInvoice) alert.success(message.deleteInvoice);
       if (message.addInvoice) alert.success(message.addInvoice);
     }
+    if (error.msg.non_field_errors)
+      alert.error(error.msg.non_field_errors.join());
   }
   render() {
     return <Fragment />;
