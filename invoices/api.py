@@ -26,7 +26,7 @@ class InvoiceViewSet(viewsets.ModelViewSet):
     serializer_class = InvoiceSerializer
 
     def get_queryset(self):
-        return self.request.user.invoice.all()
+        return self.request.user.invoices.all()
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)

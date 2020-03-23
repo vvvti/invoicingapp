@@ -30,7 +30,7 @@ class Contractor(models.Model):
 
 
 class Invoice(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name="invoices", on_delete=models.CASCADE)
     contractor = models.ForeignKey(Contractor, on_delete=models.CASCADE)
     invoice_date = models.DateTimeField(
         'invoice issue date', default=timezone.now)
