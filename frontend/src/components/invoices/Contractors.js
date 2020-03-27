@@ -7,6 +7,10 @@ export class Contractors extends Component {
   static propTypes = {
     contractors: PropTypes.array.isRequired
   };
+
+  componentDidMount() {
+    this.props.getContractors();
+  }
   render() {
     return <div></div>;
   }
@@ -16,4 +20,4 @@ const mapStateToProps = state => ({
   contractors: state.contractors.contractors
 });
 
-export default connect(mapStateToProps)(Contractors);
+export default connect(mapStateToProps, { getContractors })(Contractors);

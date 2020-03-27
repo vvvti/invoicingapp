@@ -5,17 +5,18 @@ from .serializers import (ContractorSerializer,
 
 
 class ContractorViewSet(viewsets.ModelViewSet):
+    queryset = Contractor.objects.all()
     permission_classes = [
-        permissions.IsAuthenticated
+        permissions.AllowAny
     ]
 
     serializer_class = ContractorSerializer
 
-    def get_queryset(self):
-        return self.request.user.contractor.all()
+    # def get_queryset(self):
+    #   return self.request.user.contractors.all()
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+    # def perform_create(self, serializer):
+    #   serializer.save(user=self.request.user)
 
 
 class InvoiceViewSet(viewsets.ModelViewSet):
