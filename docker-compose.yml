@@ -1,0 +1,24 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: .
+    command: ./manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/django
+    ports:
+      - 8000:8000
+    env_file:
+      - .env
+    depends_on:
+      - postgres1
+
+  postgres1:
+    image: postgres:12-alpine
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+volumes:
+  pgdata:

@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'main',
     'invoices',
     'frontend',
+    'django_extensions',
 ]
 SITE_ID = 1
 
