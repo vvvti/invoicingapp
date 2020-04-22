@@ -5,15 +5,15 @@ services:
       context: .
     command: ./manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/django
+      - .:/app
     ports:
       - 8000:8000
     env_file:
       - .env
     depends_on:
-      - postgres1
+      - postgres
 
-  postgres1:
+  postgres:
     image: postgres:12-alpine
     volumes:
       - pgdata:/var/lib/postgresql/data

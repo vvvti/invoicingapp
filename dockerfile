@@ -16,10 +16,10 @@ RUN apk add --no-cache \
     musl-dev \
     libffi-dev
 
-RUN mkdir /django
-WORKDIR  /django
+RUN mkdir /app
+WORKDIR  /app
 
-COPY requirements.txt /django
+COPY requirements.txt /app
 
 RUN pip install --upgrade pip \
     && pip install -r requirements.txt
