@@ -15,7 +15,7 @@ django-extensions==2.2.6
 django-filter==2.2.0
 django-rest-auth==0.9.5
 django-rest-knox==4.1.0
-djangorestframework==3.11.0
+djangorestframework==3.11.2
 docutils==0.16
 idna==2.8
 imagesize==1.2.0
