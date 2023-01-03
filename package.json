@@ -30,7 +30,7 @@
     "axios": "^0.21.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.0",
-    "node-sass": "^7.0.0",
+    "node-sass": "^7.0.3",
     "popper.js": "^1.16.1",
     "react-alert": "^7.0.0",
     "react-alert-template-basic": "^1.0.0",
