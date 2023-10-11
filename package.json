@@ -14,7 +14,7 @@
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-react": "^7.8.3",
     "@coreui/coreui": "^3.0.0",
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^10.4.16",
     "babel-loader": "^8.3.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "css-loader": "^6.7.3",
