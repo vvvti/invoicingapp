@@ -17,7 +17,7 @@ django-rest-auth==0.9.5
 django-rest-knox==4.1.0
 djangorestframework==3.11.2
 docutils==0.16
-idna==2.8
+idna==3.7
 imagesize==1.2.0
 isort==4.3.21
 Jinja2==2.11.3
